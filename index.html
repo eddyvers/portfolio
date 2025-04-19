@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #9e4ae8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #7f3bbf;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Select Language</h1>
+        <p>Dil seçin:</p>
+        <select id="languageSelect" onchange="updateButtonText()">
+            <option value="english">English</option>
+            <option value="azerbaijani">Azərbaycanca</option>
+        </select>
+        <br>
+        <button id="submitButton" onclick="changeLanguage()">Go</button>
+    </div>
+
+    <script>
+        function changeLanguage() {
+            var language = document.getElementById("languageSelect").value;
+            if (language === "english") {
+                window.location.href = "en.html"; 
+            } else if (language === "azerbaijani") {
+                window.location.href = "az.html";  
+            }
+        }
+
+        function updateButtonText() {
+            var language = document.getElementById("languageSelect").value;
+            var button = document.getElementById("submitButton");
+
+            if (language === "azerbaijani") {
+                button.innerHTML = "Get";  
+            } else {
+                button.innerHTML = "Go"; 
+            }
+        }
+    </script>
+
+</body>
+</html>
+
